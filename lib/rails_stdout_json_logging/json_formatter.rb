@@ -1,10 +1,10 @@
-#Custom Json Logger Formatter
+# Custom Json Logger Formatter
 class JsonFormatter < Logger::Formatter
   include ActiveSupport::TaggedLogging::Formatter
 
   def call(severity, time, _progname, msg)
     return if msg.blank?
-    log_line = { '@timestamp': time.utc.iso8601(6), app: 'cosmos_ui',
+    log_line = { '@timestamp': time.utc.iso8601(6),
                  level: severity.to_s }.merge(format(msg)).compact
     %(#{log_line.to_json}\n)
   end
