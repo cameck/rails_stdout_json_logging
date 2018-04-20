@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ServeStaticAssets < ActiveSupport::TestCase
   test "truth" do
-    assert_kind_of Module, RailsStdoutLogging
+    assert_kind_of Module, RailsStdoutJsonLogging
   end
 
   test "Active Record" do

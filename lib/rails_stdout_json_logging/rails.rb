@@ -1,4 +1,4 @@
-module RailsStdoutLogging
+module RailsStdoutJsonLogging
   class StdoutLogger < defined?(::ActiveSupport::Logger) ? ::ActiveSupport::Logger : ::Logger
     include ::LoggerSilence if defined?(::LoggerSilence)
   end

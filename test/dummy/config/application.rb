@@ -7,7 +7,7 @@ require "action_view/railtie"
 require "action_mailer/railtie"
 
 Bundler.require
-require "rails_stdout_logging"
+require "rails_stdout_json_logging"
 
 module Dummy
   class Application < Rails::Application

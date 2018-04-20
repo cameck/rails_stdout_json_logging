@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in rails_stdout_logging.gemspec
+# Specify your gem's dependencies in rails_stdout_json_logging.gemspec
 gemspec
 
 gem 'appraisal'
