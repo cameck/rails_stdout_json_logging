@@ -4,7 +4,6 @@ Rails gem to configure your app to log to standard out.
 This is a fork of https://github.com/heroku/rails_stdout_logging and the only difference currently is that it formats logs in JSON.  
 This may or may not fit your use case.
 
-[![Build Status](https://travis-ci.org/heroku/rails_stdout_json_logging.png?branch=master)](https://travis-ci.org/heroku/rails_stdout_json_logging)
 
 Supports:
 
