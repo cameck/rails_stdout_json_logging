@@ -1,3 +1,5 @@
+require_relative 'json_formatter'
+
 module RailsStdoutJsonLogging
   class StdoutLogger < defined?(::ActiveSupport::Logger) ? ::ActiveSupport::Logger : ::Logger
     include ::LoggerSilence if defined?(::LoggerSilence)
