@@ -2,7 +2,7 @@ require File.expand_path('../lib/rails_stdout_json_logging/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ['David Dollar', 'Jonathan Dance',
-                       'Richard Schneeman', 'Cameron Eckelberry']
+                       'Richard Schneeman', 'Cameron Eckelberry', 'Mina Yousseif']
   gem.email         = ['david@heroku.com', 'jd@heroku.com',
                        'richard@heroku.com', 'cameck@gmail.com']
   gem.description   = 'Sets Rails to log to stdout'

@@ -5,9 +5,10 @@ module RailsStdoutJsonLogging
 
   class Rails
     def self.heroku_stdout_logger
-      logger       = StdoutLogger.new(STDOUT)
-      logger       = ActiveSupport::TaggedLogging.new(logger) if defined?(ActiveSupport::TaggedLogging)
-      logger.level = StdoutLogger.const_get(log_level)
+      logger           = StdoutLogger.new(STDOUT)
+      logger           = ActiveSupport::TaggedLogging.new(logger) if defined?(ActiveSupport::TaggedLogging)
+      logger.formatter = JsonFormatter.new
+      logger.level     = StdoutLogger.const_get(log_level)
       logger
     end
 
