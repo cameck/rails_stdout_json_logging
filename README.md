@@ -1,8 +1,9 @@
-# Rails Stdout Logging
+# Rails Stdout JSON Logging
 
-Rails gem to configure your app to log to standard out.
+Rails gem to configure your app to log to standard out.  
+This is a fork of https://github.com/heroku/rails_stdout_logging and the only difference currently is that it formats logs in JSON.  
+This may or may not fit your use case.
 
-[![Build Status](https://travis-ci.org/heroku/rails_stdout_logging.png?branch=master)](https://travis-ci.org/heroku/rails_stdout_logging)
 
 Supports:
 
@@ -16,7 +17,7 @@ Supports:
 In your `Gemfile` add:
 
 ```
-gem 'rails_stdout_logging'
+gem 'rails_stdout_json_logging'
 ```
 
 Then run
@@ -30,9 +31,9 @@ You can get both of them together by installing the [`rails_12factor` gem](https
 
 ## Why is this needed?
 
-By default Rails writes its logs to a file, which is convenient because you only have one log file to tail. When you start scaling your app to multiple machines or dynos, it becomes much harder to find a single request or failure as they're spread across multiple files. Storing logs on disk can also take down a server if the hard drive fills up. Because of these limitations, every Rails core member we talked to uses a custom logger to replace Rails' default functionality. By using the `rails_stdout_logging` gem with Heroku, we set the logger for you.
+By default Rails writes its logs to a file, which is convenient because you only have one log file to tail. When you start scaling your app to multiple machines or dynos, it becomes much harder to find a single request or failure as they're spread across multiple files. Storing logs on disk can also take down a server if the hard drive fills up. Because of these limitations, every Rails core member we talked to uses a custom logger to replace Rails' default functionality. By using the `rails_stdout_json_logging` gem with Heroku, we set the logger for you.
 
-The gem `rails_stdout_logging` ensures that your logs will be sent to standard out. From there, Heroku sends them to [logplex](https://github.com/heroku/logplex) so you can access them from the command line like `$ heroku logs --tail`, or from enabled addons like [papertrail](https://addons.heroku.com/papertrail). By using Heroku's logplex, you can [treat logs as event streams](http://www.12factor.net/logs).
+The gem `rails_stdout_json_logging` ensures that your logs will be sent to standard out. From there, Heroku sends them to [logplex](https://github.com/heroku/logplex) so you can access them from the command line like `$ heroku logs --tail`, or from enabled addons like [papertrail](https://addons.heroku.com/papertrail). By using Heroku's logplex, you can [treat logs as event streams](http://www.12factor.net/logs).
 
 ## Why didn't I need this before?
 
@@ -52,12 +53,12 @@ $ heroku config:set LOG_LEVEL=DEBUG
 ```
 
 Valid values include `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. Alternatively you can set this value in your environment config:
- 
+
 ```
 config.log_level = :debug
 ```
 
-If both are set `LOG_LEVEL` will take precedence. 
+If both are set `LOG_LEVEL` will take precedence.
 
 ## Tests
 

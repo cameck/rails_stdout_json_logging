@@ -1,8 +1,7 @@
-require 'rails_stdout_logging/rails'
+require 'rails_stdout_json_logging/rails'
 
-module RailsStdoutLogging
+module RailsStdoutJsonLogging
   class Rails2 < Rails
-
     def self.set_logger
       super
       redefine_rails_logger!
@@ -27,21 +26,20 @@ module RailsStdoutLogging
     end
 
     def self.classes
-      %w(
+      %w[
         ActiveSupport::Dependencies
         ActiveRecord::Base
         ActionController::Base
         ActionMailer::Base
         ActionView::Base
         ActiveResource::Base
-      )
+      ]
     end
 
     def self.constantize(klass_name)
-      klass_name.split("::").inject(Object) { |parent, child| parent.const_get(child) }
+      klass_name.split('::').inject(Object) { |parent, child| parent.const_get(child) }
     rescue NameError
       raise NameError, "Unable to find #{klass_name}"
     end
-
   end
 end
